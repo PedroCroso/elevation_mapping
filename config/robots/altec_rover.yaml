@@ -1,0 +1,76 @@
+elevation_mapping:
+  ros__parameters:
+    inputs: [lidar] #, front_camera, rear_camera]
+    #front_camera: # A name to identify the input source
+    #  type: pointcloud # Supported types: pointcloud
+    #  topic: /depth/zedx_front_image/points
+    #  queue_size: 5
+    #  publish_on_update: false # Whether to publish the elevation map after a callback from this source.
+    #  sensor_processor:
+    #    type: perfect
+    #rear_camera: # A name to identify the input source
+    #  type: pointcloud # Supported types: pointcloud
+    #  topic: /depth/zedx_rear_image/points
+    #  queue_size: 5
+    #  publish_on_update: false # Whether to publish the elevation map after a callback from this source.
+    #  sensor_processor:
+    #    type: perfect
+    lidar: # A name to identify the input source
+      type: pointcloud # Supported types: pointcloud
+      topic: /os1_cloud_node/points/points
+      queue_size: 5
+      publish_on_update: true # Whether to publish the elevation map after a callback from this source.
+      sensor_processor:
+        type: laser
+    map_frame_id: odom
+    robot_base_frame_id: base_link
+    robot_pose_with_covariance_topic: /glim_rosnode/odom_corrected
+    track_point_frame_id: base_link
+    track_point_x: 0.0
+    track_point_y: 0.0
+    track_point_z: 0.0
+    
+    min_update_rate: 2.0
+    time_tolerance: 1.0
+    robot_motion_map_update/covariance_scale_translation_x: 0.0
+    robot_motion_map_update/covariance_scale_translation_y: 0.0
+    robot_motion_map_update/covariance_scale_translation_z: 0.0
+    robot_motion_map_update/covariance_scale_rotation_x: 0.0
+    robot_motion_map_update/covariance_scale_rotation_y: 0.0
+    robot_motion_map_update/covariance_scale_rotation_z: 0.0
+
+
+    robot_pose_cache_size: 200
+    time_offset_for_point_cloud: 0.0
+    robot_motion_map_update__covariance_scale: 0.01
+
+    # Map
+    length_in_x: 10.0
+    length_in_y: 10.0
+    position_x: 0.0
+    position_y: 0.0
+    resolution: 0.075
+    min_variance: 0.0001
+    max_variance: 0.05
+    mahalanobis_distance_threshold: 2.5
+    multi_height_noise: 0.001
+    fused_map_publishing_rate: 0.5
+    enable_skip_lower_points: true
+    scanning_duration: 0.01
+    remove_penetrated_points_rate: 5.0
+    surface_normal_positive_axis: z
+    visibility_cleanup_rate: 1.0
+    enable_visibility_cleanup: true
+    
+    sensor_cutoff_min_depth: 0.05
+    sensor_cutoff_max_depth: 10.0
+    
+
+    # Init submap
+    #initialize_elevation_map: true
+    #initialization_method: 0
+    #length_in_x_init_submap: 1.0
+    #length_in_y_init_submap: 1.0
+    #margin_init_submap: 0.3
+    #init_submap_height_offset: 0.01
+    #target_frame_init_submap: base_link

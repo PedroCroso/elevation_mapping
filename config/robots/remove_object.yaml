@@ -1,4 +1,25 @@
-point_cloud_topic: "/points"
+input_sources: 
+      #front_camera: # A name to identify the input source
+      #  type: pointcloud # Supported types: pointcloud
+      #  topic: /depth/zedx_front_image/points
+      #  queue_size: 1
+      #  publish_on_update: false # Whether to publish the elevation map after a callback from this source.
+      #  sensor_processor:
+      #    type: perfect
+      #rear_camera: # A name to identify the input source
+      #  type: pointcloud # Supported types: pointcloud
+      #  topic: /depth/zedx_rear_image/points
+      #  queue_size: 1
+      #  publish_on_update: false # Whether to publish the elevation map after a callback from this source.
+      #  sensor_processor:
+      #    type: perfect
+      lidar: # A name to identify the input source
+        type: pointcloud # Supported types: pointcloud
+        topic: /os1_cloud_node/points/points
+        queue_size: 1
+        publish_on_update: true # Whether to publish the elevation map after a callback from this source.
+        sensor_processor:
+          type: laser
 map_frame_id: "map"
 robot_base_frame_id: "base"
 robot_pose_with_covariance_topic: "/pose"

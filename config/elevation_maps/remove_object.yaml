@@ -1,9 +1,14 @@
-point_cloud_topic: "/points"
+input_sources:
+  lidar: 
+    type: pointcloud
+    topic: "/os1_cloud_node/points/points"
+    queue_size: 1
+    publish_on_update: true
 map_frame_id: "map"
-robot_base_frame_id: "base"
-robot_pose_with_covariance_topic: "/pose"
+robot_base_frame_id: "frame_id"
+robot_pose_with_covariance_topic: "/glim_rosnode/pose_corrected"
 robot_pose_cache_size: 500
-track_point_frame_id: "base"
+track_point_frame_id: "frame_id"
 track_point_x: 0.0
 track_point_y: 0.0
 track_point_z: 0.0
